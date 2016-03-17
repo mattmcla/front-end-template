@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Front-End template",
   "scripts": {
-    "start": "static dist/",
+    "start-old": "static dist/",
+		"start": "webpack-dev-server --progress --colors --content-base ./dist",
     "prestart": "NODE_ENV=\"${NODE_ENV:-development}\" npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && npm run build-index && npm run build-style && npm run build-script && npm run build-script-libs && npm run build-template",
+    "build": "npm run clean && npm run build-index && npm run build-style",
     "build-index": "jade ./src/index.jade -o ./dist",
     "build-script": "babel --source-root /script src/script -d ./dist/script",
     "build-script-libs": "./scripts/build-script-libs.sh",
@@ -24,15 +25,22 @@
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.5.1",
+    "babel-loader": "^6.2.4",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
     "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
     "livereload": "^0.4.1",
     "node-sass": "^3.4.2",
     "node-static": "^0.7.7",
     "normalize.css": "^3.0.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "susy": "^2.2.12",
     "systemjs": "^0.19.20",
-    "watchy": "^0.6.5"
+    "watchy": "^0.6.5",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   }
 }
