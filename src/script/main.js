@@ -1,20 +1,15 @@
-'use strict'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import App from './components/App'
 
-import core from './core'
-import sandbox from './sandbox'
+let store = createStore(todoApp)
 
-
-core.baseDir = './script'
-core.sbx = sandbox(core)
-
-// Register plugins
-core.use('/view')
-
-// Register components
-core.register('/components/mac-filter')
-
-// Start the app
-core.start()
-  .then(() => {
-    core.log('App Started!!')
-  })
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)

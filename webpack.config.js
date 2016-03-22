@@ -7,12 +7,11 @@ module.exports = {
     },
     module: {
       loaders: [
-        { test: /\.jade$/, loader: 'jade' },
         {
-          test: /\.js$/,
+          test: /\.jsx?$/,
           loader: 'babel',
           query: {
-            presets: ['es2015']
+            presets: ['es2015', 'react']
           }
         }
       ]
