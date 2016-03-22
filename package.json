@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --content-base ./dist",
     "prestart": "NODE_ENV=\"${NODE_ENV:-development}\" npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch",
     "build": "npm run clean && npm run build-index && npm run build-style",
     "build-index": "jade ./src/index.jade -o ./dist",
     "build-script": "babel --source-root /script src/script -d ./dist/script",
@@ -41,5 +42,11 @@
     "watchy": "^0.6.5",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.7.2",
+    "chai": "^3.5.0",
+    "dirty-chai": "^1.2.2",
+    "mocha": "^2.4.5"
   }
 }
