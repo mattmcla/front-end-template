@@ -1,5 +1,6 @@
+/* eslint no-empty-pattern: 2 */
 import chai from 'chai'
-import dirtyChai from 'dirty-chai'
+import 'dirty-chai'
 import * as actions from '../../../src/script/actions'
 
 const expect = chai.expect
@@ -10,7 +11,7 @@ describe('actions', () => {
     const expectedAction = {
       type: actions.ADD_TODO,
       text,
-      id: 0
+      id: 0,
     }
     expect(actions.addTodo(text)).to.eql(expectedAction)
   })

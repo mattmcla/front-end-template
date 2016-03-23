@@ -4,7 +4,7 @@ const todo = (state, action) => {
       return {
         id: action.id,
         text: action.text,
-        completed: false
+        completed: false,
       }
     case 'TOGGLE_TODO':
       if (state.id !== action.id) {
@@ -12,7 +12,7 @@ const todo = (state, action) => {
       }
 
       return Object.assign({}, state, {
-        completed: !state.completed
+        completed: !state.completed,
       })
 
     default:
@@ -25,7 +25,7 @@ const todos = (state = [], action) => {
     case 'ADD_TODO':
       return [
         ...state,
-        todo(undefined, action)
+        todo(undefined, action),
       ]
     case 'TOGGLE_TODO':
       return state.map(t =>
