@@ -1,4 +1,3 @@
-/* eslint no-empty-pattern: 2 */
 import chai from 'chai'
 import 'dirty-chai'
 import * as actions from '../../../src/script/actions'

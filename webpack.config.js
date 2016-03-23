@@ -8,9 +8,14 @@ module.exports = {
     module: {
       loaders: [
         {
-          test: /\.jsx?$/,
-          loader: 'babel'
-					// .babelrc in use
+          test: /\.jsx$/,
+          loader: 'babel',
+					// .babelrc also in use
+          presets: ['react']
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel',
         }
       ]
     }
