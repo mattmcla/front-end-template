@@ -1,4 +1,7 @@
+import CSSModules from 'react-css-modules';
 import React, { PropTypes } from 'react'
+
+import styles from '../../style/modules/todo'
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -9,7 +12,7 @@ const propTypes = {
 const Todo = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
-    style={{ textDecoration: completed ? 'line-through' : 'none' }}
+    styleName={ completed ? 'completed' : undefined }
   >
     {text}
   </li>
@@ -17,4 +20,4 @@ const Todo = ({ onClick, completed, text }) => (
 
 Todo.propTypes = propTypes
 
-export default Todo
+export default CSSModules(Todo, styles)

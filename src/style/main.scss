@@ -1,2 +1,8 @@
 @import 'normalize.css/normalize';
 @import 'susy/sass/susy';
+@import 'config/colors';
+
+body {
+  color: $dark-gray;
+  background-color: $light-gray;
+}
