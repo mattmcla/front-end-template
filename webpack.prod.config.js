@@ -18,8 +18,8 @@ module.exports = {
 					'NODE_ENV': JSON.stringify('production')
 				}
 			}),
-      new ExtractTextPlugin('main.css', {
-        allChunks: true
+      new ExtractTextPlugin('app.css', {
+            allChunks: true
       })
 		],
     module: {
@@ -31,16 +31,16 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          loaders: [
-            'style',
-            'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-            //'resolve-url',
-            'sass'
-          ]
+          loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
         }
       ]
     },
     sassLoader: {
       includePaths: [path.resolve(__dirname, './node_modules')]
+    },
+    postcss: function () {
+      return [
+        require('autoprefixer')({ browsers: ['last 2 versions'] })
+      ];
     }
 }
