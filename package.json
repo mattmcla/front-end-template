@@ -4,17 +4,17 @@
   "description": "Front-End template",
   "scripts": {
     "start": "npm run watch",
-    "lint": "eslint src/script test/",
+    "lint": "eslint --ext .jsx,.js src/script test/",
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
-    "build": "npm run clean  && npm run build-index",
+    "build": "npm run clean  && npm run build-index && npm run lint",
     "build:prod": "npm run build && npm run test && npm run lint && npm run build-script -- -p --config webpack.prod.config.js",
     "build-index": "jade ./src/index.jade -o ./dist",
     "build-script": "webpack",
     "clean": "rm -Rf dist && mkdir dist",
     "watch": "npm run build && webpack-dev-server -d --progress --colors --content-base ./dist --watch & npm run watch-index & npm run test:watch & npm run watch-lint",
     "watch-index": "watchy -w ./src/index.jade -- npm run build-index",
-    "watch-lint": "watchy -w ./src/script,./test -- eslint --cache src/script /test"
+    "watch-lint": "watchy -w ./src/script,./test -- eslint --ext .jsx,.js --cache src/script /test"
   },
   "author": "Matt McLaughlin <mclaughlin.matt@gmail.com>",
   "license": "ISC",

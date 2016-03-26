@@ -1,4 +1,4 @@
-import CSSModules from 'react-css-modules';
+import cssModules from 'react-css-modules'
 import React, { PropTypes } from 'react'
 
 import styles from '../../style/modules/todo'
@@ -20,4 +20,4 @@ const Todo = ({ onClick, completed, text }) => (
 
 Todo.propTypes = propTypes
 
-export default CSSModules(Todo, styles)
+export default cssModules(Todo, styles)
