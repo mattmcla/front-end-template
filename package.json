@@ -9,11 +9,11 @@
     "test:watch": "npm test -- --watch",
     "build": "npm run clean  && npm run build-index && npm run lint",
     "build:prod": "npm run build && npm run test && npm run lint && npm run build-script -- -p --config webpack.prod.config.js",
-    "build-index": "jade ./src/index.jade -o ./dist",
+    "build-index": "pug ./src/index.pug -o ./dist",
     "build-script": "webpack",
     "clean": "rm -Rf dist && mkdir dist",
     "watch": "npm run build && webpack-dev-server -d --progress --colors --content-base ./dist --watch & npm run watch-index & npm run test:watch & npm run watch-lint",
-    "watch-index": "watchy -w ./src/index.jade -- npm run build-index",
+    "watch-index": "watchy -w ./src/index.pug -- npm run build-index",
     "watch-lint": "watchy -w ./src/script,./test -- eslint --ext .jsx,.js --cache src/script /test"
   },
   "author": "Matt McLaughlin <mclaughlin.matt@gmail.com>",
@@ -34,13 +34,14 @@
     "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
-    "jade": "^1.11.0",
     "mocha": "^2.4.5",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.6.0",
     "normalize.css": "^3.0.3",
     "postcss-import": "^8.0.2",
     "postcss-loader": "^0.8.2",
     "postcss-scss": "^0.1.7",
+    "pug": "^2.0.0-alpha6",
+    "pug-cli": "^1.0.0-alpha1",
     "ramda": "^0.19.1",
     "react": "^0.14.7",
     "react-css-modules": "^3.7.6",
@@ -51,12 +52,8 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "susy": "^2.2.12",
-    "watchy": "^0.6.5",
+    "watchy": "^0.6.6",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
-  },
-  "devDependencies": {
-    "eslint-config-airbnb": "^6.1.0",
-    "eslint-plugin-react": "^4.2.3"
   }
 }
