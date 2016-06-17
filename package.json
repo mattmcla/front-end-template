@@ -8,7 +8,7 @@
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
     "build": "npm run clean  && npm run build-index && npm run lint",
-    "build:prod": "npm run build && npm run test && npm run lint && npm run build-script -- -p --config webpack.prod.config.js",
+    "build:prod": "npm run build && npm run test && npm run build-script -- -p --config webpack.prod.config.js",
     "build-index": "pug ./src/index.pug -o ./dist",
     "build-script": "webpack",
     "clean": "rm -Rf dist && mkdir dist",
