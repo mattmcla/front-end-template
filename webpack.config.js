@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss'],
     alias: {
-      env: path.join(__dirname, './src/config/dev.js'),
+      env: path.join(__dirname, 'src/config/dev.js'),
     },
   },
   output: {
