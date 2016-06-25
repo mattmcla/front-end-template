@@ -1,5 +1,5 @@
-const ENV = {
+const CONFIG = {
   say: 'I am Development',
 }
 
-export default ENV
+export default CONFIG
